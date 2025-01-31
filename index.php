@@ -1,7 +1,4 @@
 <?php
-
-/* Строгая типипзация */
-
 declare(strict_types=1);
 
 interface Template
@@ -12,30 +9,19 @@ interface Template
 class InvoiceTemplate implements Template
 {
 	public function get()
-	{
-		return 'template';
+	{		
+		return require('./template.php');
 	}
 }
 
-class InvoiceTemplate2 implements Template
-{
-	public function get()
-	{
-		return 'template';
-	}
-}
-
-class Generator
+class GenerateInvoice
 {
 	public function generate(Template $template)
 	{
-		return $template->get();
+		echo $template->get();
 	}
 }
 
 
-$g1 = new Generator();
+$g1 = new GenerateInvoice();
 $g1->generate(new InvoiceTemplate());
-
-$g2 = new Generator();
-$g2->generate(new InvoiceTemplate2());
