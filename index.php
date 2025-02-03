@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 interface Template
@@ -9,8 +10,12 @@ interface Template
 class InvoiceTemplate implements Template
 {
 	public function get()
-	{		
-		return require('./template.php');
+	{
+		if (file_exists('./template.php')) {
+			return require('./template.php');
+		} else {
+			echo 'Файл не найден';
+		}
 	}
 }
 
