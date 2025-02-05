@@ -6,9 +6,9 @@ declare(strict_types=1); ?>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<!-- use xlsx.mini.min.js from version 0.20.3 -->
-	<script lang="javascript" src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.mini.min.js"></script>
+	<title>Template to PDF</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js">
+	</script>
 	<script defer src='/index.js'></script>
 </head>
 
@@ -43,18 +43,12 @@ declare(strict_types=1); ?>
 
 	$g1 = new GenerateInvoice();
 	$g1->generate(new InvoiceTemplate());
+	
 	?>
 
-<button id="sheetjsexport"><b>Export as XLSX</b></button>
-
-<script>
-document.getElementById("sheetjsexport").addEventListener('click', function() {
-  /* Create worksheet from HTML DOM TABLE */
-  var wb = XLSX.utils.table_to_book(document.getElementById("TableToExport"));
-  /* Export to file (start a download) */
-  XLSX.writeFile(wb, "SheetJSTable.xlsx");
-});
-</script>
+<br>
+<br>
+<button id="invoice-button">Скачать счет</button>
 </body>
 
 </html>
